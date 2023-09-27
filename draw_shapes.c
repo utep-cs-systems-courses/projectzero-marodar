@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "draw.h"
-
+void print_arrow(int leftCol, int size);
 /* Prints a size x size square whose left col is at startCol */
 void print_square(int leftCol, int size)
 {
@@ -25,4 +25,51 @@ void print_triangle(int leftCol, int size)
     putchar('\n');
   }
 }
+
+//Prints an arrow
+void print_arrow(int leftCol, int size)
+
+{
+
+  //upper part of arrow
+
+  for(int row=1; row<=size; row++){
+
+    int minCol = leftCol + size - row+1, maxCol = leftCol + size + row-1;
+
+    int col;
+
+    for(col=1; col<minCol; col++) putchar(' ');
+
+    for(     ; col<=maxCol; col++) putchar('*');
+
+    putchar('\n');
+
+  }
+
+  //Print lower part of arrow
+
+  int arrowWidth = (size*2)+1;
+
+  for(int i = 0; i<2; i++){
+
+    for(int j = 0; j<leftCol+2; j++){
+
+      putchar(' ');
+
+    }
+
+    for(int k=0; k<arrowWidth-6; k++){
+
+      putchar('*');
+
+    }
+
+    putchar('\n');
+
+  }
+
+}
+
+
 
